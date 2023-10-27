@@ -279,6 +279,11 @@ final class Plugin implements PluginInterface
 			return false;
 		}
 
+		if (!isset($body->score) || $body->score < 0.5)
+		{
+			return false;
+		}
+
 		return true;
 	}
 }
