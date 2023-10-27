@@ -19,6 +19,9 @@
 		<language tag="en-GB">language/en-GB/plg_captcha_recaptcha_v3.ini</language>
 		<language tag="en-GB">language/en-GB/plg_captcha_recaptcha_v3.sys.ini</language>
 	</languages>
+	<media folder="media" destination="plg_captcha_recaptcha_v3">
+		<folder>js</folder>
+	</media>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">

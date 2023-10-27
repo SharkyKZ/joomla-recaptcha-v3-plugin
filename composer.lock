@@ -1,0 +1,47 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "acb44e8ad981ff3155279a7bcae56116",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "sharky/joomla-plugin-build-script",
+            "version": "dev-composer",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SharkyKZ/joomla-plugin-build-script.git",
+                "reference": "6cc17bcf124a630e57050d76543f4475b610bb46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SharkyKZ/joomla-plugin-build-script/zipball/6cc17bcf124a630e57050d76543f4475b610bb46",
+                "reference": "6cc17bcf124a630e57050d76543f4475b610bb46",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sharky\\Joomla\\PluginBuildScript\\": "src/"
+                }
+            },
+            "support": {
+                "source": "https://github.com/SharkyKZ/joomla-plugin-build-script/tree/composer",
+                "issues": "https://github.com/SharkyKZ/joomla-plugin-build-script/issues"
+            },
+            "time": "2023-10-27T07:54:04+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "sharky/joomla-plugin-build-script": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

@@ -1,7 +1,7 @@
 <?php
 /**
  * @copyright   (C) 2023 SharkyKZ
- * @license	 GPL-2.0-or-later
+ * @license     GPL-2.0-or-later
  */
 
 defined('_JEXEC') || exit;
@@ -17,7 +17,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 	/**
 	 * Minimum supported Joomla! version.
 	 *
-	 * @var	string
+	 * @var    string
 	 * @since  1.0.0
 	 */
 	private $joomlaMinimum = '4.0';
@@ -25,7 +25,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 	/**
 	 * Next unsupported Joomla! version.
 	 *
-	 * @var	string
+	 * @var    string
 	 * @since  1.0.0
 	 */
 	private $joomlaUnsupported = '6.0';
@@ -33,7 +33,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 	/**
 	 * Minimum supported PHP version.
 	 *
-	 * @var	string
+	 * @var    string
 	 * @since  1.0.0
 	 */
 	private $phpMinimum = '7.2.5';
@@ -41,7 +41,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 	/**
 	 * Next unsupported PHP version.
 	 *
-	 * @var	string
+	 * @var    string
 	 * @since  1.0.0
 	 */
 	private $phpUnsupported = '8.4';
@@ -49,7 +49,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 	/**
 	 * Function called before extension installation/update/removal procedure commences.
 	 *
-	 * @param   string								 $type	The type of change (install, update, discover_install or uninstall).
+	 * @param   string                                 $type    The type of change (install, update, discover_install or uninstall).
 	 * @param   Joomla\CMS\Installer\InstallerAdapter  $parent  The class calling this method.
 	 *
 	 * @return  bool  Returns true if installation can proceed.
