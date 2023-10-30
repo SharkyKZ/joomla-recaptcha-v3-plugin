@@ -152,10 +152,11 @@ final class Plugin implements PluginInterface
 
 		if (!$assetManager->assetExists('script', 'plg_captcha_recaptcha_v3.api.js'))
 		{
+			$languageTag = $this->app->getLanguage()->getTag();
 			$assetManager->registerAsset(
 				'script',
 				'plg_captcha_recaptcha_v3.api.js',
-				'https://www.google.com/recaptcha/api.js?render=' . $this->params->get('siteKey'),
+				'https://www.google.com/recaptcha/api.js?hl=' . $languageTag . '&render=' . $this->params->get('siteKey'),
 				[],
 				['async' => true, 'defer' => true],
 				['core']
