@@ -57,6 +57,21 @@
 					<option value="">JNONE</option>
 				</field>
 			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="strictMode"
+					type="radio"
+					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_STRICT_MODE_LABEL"
+					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_STRICT_MODE_DESCRIPTION"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="uint"
+					validate="options"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
 		</fields>
 	</config>
 	<changelogurl>https://raw.githubusercontent.com/SharkyKZ/joomla-recaptcha-v3-plugin/master/updates/changelog.xml</changelogurl>
