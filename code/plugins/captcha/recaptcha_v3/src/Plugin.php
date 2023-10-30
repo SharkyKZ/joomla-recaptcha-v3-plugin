@@ -114,6 +114,11 @@ final class Plugin implements PluginInterface
 	 */
 	public function onInit($id = null)
 	{
+		if (!$this->params->get('siteKey'))
+		{
+			return true;
+		}
+
 		if (!$this->app instanceof CMSWebApplicationInterface)
 		{
 			return true;
@@ -129,26 +134,30 @@ final class Plugin implements PluginInterface
 		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $this->params->get('siteKey'));
 
 		$assetManager = $document->getWebAssetManager();
-		$assetManager->useScript('core');
 
 		if (!$assetManager->assetExists('script', 'plg_captcha_recaptcha_v3.api.js'))
 		{
-			$assetManager->registerAndUseScript(
+			$assetManager->registerAsset(
+				'script',
 				'plg_captcha_recaptcha_v3.api.js',
 				'https://www.google.com/recaptcha/api.js?render=' . $this->params->get('siteKey'),
 				[],
-				['async' => true]
+				['async' => true, 'defer' => true],
+				['core']
 			);
 		}
 
 		if (!$assetManager->assetExists('script', 'plg_captcha_recaptcha_v3.main.js'))
 		{
-			$assetManager->registerAndUseScript(
+			$assetManager->registerAsset(
+				'script',
 				'plg_captcha_recaptcha_v3.main.js',
 				'plg_captcha_recaptcha_v3/main.js',
 				['version' => self::SCRIPT_HASH],
-				['async' => true, 'defer' => true]
+				['async' => true, 'defer' => true],
+				['plg_captcha_recaptcha_v3.api.js', 'core']
 			);
+			$assetManager->useAsset('script', 'plg_captcha_recaptcha_v3.main.js');
 		}
 
 		return true;
@@ -183,12 +192,12 @@ final class Plugin implements PluginInterface
 	/**
 	 * Alters form field.
 	 *
-	 * @param   CaptchaField	   $field	Captcha field instance
+	 * @param   CaptchaField       $field    Captcha field instance
 	 * @param   \SimpleXMLElement  $element  XML form definition
 	 *
-	 * @return void
+	 * @return  void
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 */
 	public function onSetupField(CaptchaField $field, \SimpleXMLElement $element)
 	{
