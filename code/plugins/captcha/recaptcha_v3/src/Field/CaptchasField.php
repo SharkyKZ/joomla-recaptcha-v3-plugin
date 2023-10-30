@@ -10,7 +10,7 @@ namespace Sharky\Plugin\Captcha\RecaptchaV3\Field;
 use Joomla\CMS\Form\Field\PluginsField;
 
 /**
- * Google reCAPTCHA v3 plugin
+ * Captchas form field class.
  *
  * @since  1.0.0
  */
