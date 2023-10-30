@@ -333,7 +333,14 @@ final class Plugin implements PluginInterface
 			return false;
 		}
 
-		if (!isset($body->score) || $body->score < 0.5)
+		$score = $this->params->get('score', 0.5);
+
+		if (!\is_float($score) || $score < 0 || $score > 1)
+		{
+			$score = 0.5;
+		}
+
+		if (!isset($body->score) || $body->score < $score)
 		{
 			if ($this->hasCaptcha())
 			{

@@ -36,6 +36,17 @@
 					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SECRET_LABEL"
 				/>
 				<field
+					name="score"
+					type="text"
+					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_LABEL"
+					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_DESCRIPTION"
+					validate="number"
+					min="0.0"
+					max="1.0"
+					step="0.01"
+					default="0.5"
+				/>
+				<field
 					name="captcha"
 					addfieldprefix="Sharky\Plugin\Captcha\RecaptchaV3\Field"
 					type="Captchas"
