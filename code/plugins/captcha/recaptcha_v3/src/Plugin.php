@@ -226,6 +226,11 @@ final class Plugin implements PluginInterface
 			throw new \RuntimeException($language->_('PLG_CAPTCHA_RECAPTCHA_V3_ERROR_EMPTY_ANSWER'));
 		}
 
+		if (!$this->params->get('secret'))
+		{
+			throw new \RuntimeException($language->_('PLG_CAPTCHA_RECAPTCHA_V3_NO_SECRET_KEY'));
+		}
+
 		try
 		{
 			$http = (new HttpFactory)->getHttp();
