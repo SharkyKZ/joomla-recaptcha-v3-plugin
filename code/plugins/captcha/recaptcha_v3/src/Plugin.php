@@ -246,7 +246,14 @@ final class Plugin implements PluginInterface
 	{
 		if ($this->shouldShowCaptcha())
 		{
-			return $this->getCaptcha()->checkAnswer($code);
+			$answer = $this->getCaptcha()->checkAnswer($code);
+
+			if ($answer)
+			{
+				$this->setShouldShowCaptcha(false);
+			}
+
+			return $answer;
 		}
 
 		$language = $this->app->getLanguage();
