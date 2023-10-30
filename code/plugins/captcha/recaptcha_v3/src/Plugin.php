@@ -348,7 +348,7 @@ final class Plugin implements PluginInterface
 				$this->setShouldShowCaptcha(true);
 			}
 
-			return false;
+			throw new \RuntimeException($language->_('PLG_CAPTCHA_RECAPTCHA_V3_ERROR_CAPTCHA_VERIFICATION'));
 		}
 
 		if ($this->hasCaptcha())
