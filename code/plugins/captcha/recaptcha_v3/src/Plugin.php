@@ -7,8 +7,10 @@ namespace Sharky\Plugin\Captcha\RecaptchaV3;
 
 \defined('_JEXEC') || exit;
 
+use Joomla\Application\SessionAwareWebApplicationInterface;
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Application\CMSWebApplicationInterface;
+use Joomla\CMS\Captcha\Captcha;
 use Joomla\CMS\Document\HtmlDocument;
 use Joomla\CMS\Extension\PluginInterface;
 use Joomla\CMS\Form\Field\CaptchaField;
@@ -64,6 +66,14 @@ final class Plugin implements PluginInterface
 	private $params;
 
 	/**
+	 * Alternative Captcha instance, if set.
+	 *
+	 * @var	 ?Captcha
+	 * @since  1.0.0
+	 */
+	private $captcha;
+
+	/**
 	 * Class constructor.
 	 *
 	 * @param   Registry  $params  Plugin parameters.
@@ -114,6 +124,11 @@ final class Plugin implements PluginInterface
 	 */
 	public function onInit($id = null)
 	{
+		if ($this->shouldShowCaptcha())
+		{
+			return $this->getCaptcha()->initialise($id);
+		}
+
 		if (!$this->params->get('siteKey'))
 		{
 			return true;
@@ -176,6 +191,11 @@ final class Plugin implements PluginInterface
 	 */
 	public function onDisplay($name = null, $id = null, $class = '')
 	{
+		if ($this->shouldShowCaptcha())
+		{
+			return $this->getCaptcha()->display($name, $id, $class);
+		}
+
 		$this->loadLanguage();
 
 		if (!$this->params->get('siteKey'))
@@ -202,6 +222,13 @@ final class Plugin implements PluginInterface
 	 */
 	public function onSetupField(CaptchaField $field, \SimpleXMLElement $element)
 	{
+		if ($this->shouldShowCaptcha())
+		{
+			$this->getCaptcha()->setupField($field, $element);
+
+			return;
+		}
+
 		$element['hiddenLabel'] = 'true';
 	}
 
@@ -217,6 +244,11 @@ final class Plugin implements PluginInterface
 	 */
 	public function onCheckAnswer($code = null)
 	{
+		if ($this->shouldShowCaptcha())
+		{
+			return $this->getCaptcha()->checkAnswer($code);
+		}
+
 		$language = $this->app->getLanguage();
 		$this->loadLanguage();
 
@@ -296,7 +328,17 @@ final class Plugin implements PluginInterface
 
 		if (!isset($body->score) || $body->score < 0.5)
 		{
+			if ($this->hasCaptcha())
+			{
+				$this->setShouldShowCaptcha(true);
+			}
+
 			return false;
+		}
+
+		if ($this->hasCaptcha())
+		{
+			$this->setShouldShowCaptcha(true);
 		}
 
 		return true;
@@ -338,5 +380,60 @@ final class Plugin implements PluginInterface
 	private function loadLanguage(): void
 	{
 		$this->app->getLanguage()->load('plg_captcha_recaptcha_v3', \JPATH_ADMINISTRATOR);
+	}
+
+	private function setShouldShowCaptcha(bool $value): void
+	{
+		if (!$this->app instanceof SessionAwareWebApplicationInterface)
+		{
+			return;
+		}
+
+		if ($value)
+		{
+			$this->app->getSession()->set('plg_captcha_recaptcha_v3.showCaptcha', true);
+		}
+
+		$this->app->getSession()->remove('plg_captcha_recaptcha_v3.showCaptcha');
+	}
+
+	private function shouldShowCaptcha(): bool
+	{
+		if (!$this->hasCaptcha())
+		{
+			return false;
+		}
+
+		if (!$this->app instanceof SessionAwareWebApplicationInterface)
+		{
+			return false;
+		}
+
+		return (bool) $this->app->getSession()->get('plg_captcha_recaptcha_v3.showCaptcha', false);
+	}
+
+	private function hasCaptcha(): bool
+	{
+		if (!$this->params->get('captcha'))
+		{
+			return false;
+		}
+
+		if ($this->params->get('captcha') === 'recaptcha_v3')
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	private function getCaptcha(): Captcha
+	{
+		if ($this->captcha === null)
+		{
+			$this->captcha = Captcha::getInstance($this->params->get('captcha'));
+		}
+
+		return $this->captcha;
 	}
 }
