@@ -41,6 +41,7 @@
 					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_LABEL"
 					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_DESCRIPTION"
 					validate="number"
+					filter="float"
 					min="0.0"
 					max="1.0"
 					step="0.01"
