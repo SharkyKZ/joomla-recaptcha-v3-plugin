@@ -51,6 +51,7 @@
 					addfieldprefix="Sharky\Plugin\Captcha\RecaptchaV3\Field"
 					type="Captchas"
 					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_CAPTCHA_LABEL"
+					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_CAPTCHA_DESCRIPTION"
 					validate="options"
 					>
 					<option value="">JNONE</option>
