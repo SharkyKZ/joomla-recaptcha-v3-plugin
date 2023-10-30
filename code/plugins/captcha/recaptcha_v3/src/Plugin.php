@@ -407,6 +407,8 @@ final class Plugin implements PluginInterface
 		if ($value)
 		{
 			$this->app->getSession()->set('plg_captcha_recaptcha_v3.showCaptcha', true);
+
+			return;
 		}
 
 		$this->app->getSession()->remove('plg_captcha_recaptcha_v3.showCaptcha');
@@ -424,7 +426,7 @@ final class Plugin implements PluginInterface
 			return false;
 		}
 
-		return (bool) $this->app->getSession()->get('plg_captcha_recaptcha_v3.showCaptcha', false);
+		return $this->app->getSession()->has('plg_captcha_recaptcha_v3.showCaptcha');
 	}
 
 	private function hasCaptcha(): bool
