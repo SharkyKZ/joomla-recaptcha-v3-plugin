@@ -176,15 +176,16 @@ final class Plugin implements PluginInterface
 	 */
 	public function onDisplay($name = null, $id = null, $class = '')
 	{
-		$html = '<input type="hidden" name="' . $name . '" class="plg-captcha-recaptcha-v3-hidden">';
+		$this->loadLanguage();
 
-		ob_start();
-		(function ()
+		if (!$this->params->get('siteKey'))
 		{
-			include PluginHelper::getLayoutPath('captcha', 'recaptcha_v3', 'noscript');
-		})();
+			return $this->render('nokey');
+		}
 
-		$html .= ob_get_clean();
+		$html = '<input type="hidden" name="' . $this->escape($name) . '" class="plg-captcha-recaptcha-v3-hidden">';
+		$html .= $this->render('noscript');
+
 
 		return $html;
 	}
@@ -217,7 +218,7 @@ final class Plugin implements PluginInterface
 	public function onCheckAnswer($code = null)
 	{
 		$language = $this->app->getLanguage();
-		$language->load('plg_captcha_recaptcha_v3', \JPATH_ADMINISTRATOR);
+		$this->loadLanguage();
 
 		if ($code === null || $code === '')
 		{
@@ -294,5 +295,43 @@ final class Plugin implements PluginInterface
 		}
 
 		return true;
+	}
+
+	private function escape(?string $string): string
+	{
+		return $string ? htmlspecialchars($string, \ENT_QUOTES|\ENT_SUBSTITUTE|\ENT_HTML5, 'UTF-8') : $string;
+	}
+
+	private function render(string $layout): string
+	{
+		$html = '';
+		$file = PluginHelper::getLayoutPath('captcha', 'recaptcha_v3', $layout);
+
+		if (!is_file($file))
+		{
+			return '';
+		}
+
+		$data = [
+			'language' => $this->app->getLanguage(),
+		];
+
+		ob_start();
+
+		(static function ()
+		{
+			extract(func_get_arg(1));
+
+			include func_get_arg(0);
+		})($file, $data);
+
+		$html .= ob_get_clean();
+
+		return $html;
+	}
+
+	private function loadLanguage(): void
+	{
+		$this->app->getLanguage()->load('plg_captcha_recaptcha_v3', \JPATH_ADMINISTRATOR);
 	}
 }

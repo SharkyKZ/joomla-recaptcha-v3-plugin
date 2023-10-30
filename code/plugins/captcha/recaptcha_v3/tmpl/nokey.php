@@ -9,8 +9,6 @@ defined('_JEXEC') || exit;
 /** @var Joomla\CMS\Language\Language $language */
 
 ?>
-<noscript>
-	<div class="alert alert-warning">
-		<?= $language->_('PLG_CAPTCHA_RECAPTCHA_V3_NOSCRIPT') ?>
-	</div>
-</noscript>
+<div class="alert alert-warning">
+	<?= $language->_('PLG_CAPTCHA_RECAPTCHA_V3_NO_SITE_KEY') ?>
+</div>
