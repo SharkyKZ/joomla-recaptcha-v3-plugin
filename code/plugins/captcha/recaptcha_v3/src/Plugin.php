@@ -241,10 +241,10 @@ final class Plugin implements PluginInterface
 			return !$this->params->get('strictMode');
 		}
 
-		$data = array(
+		$data = [
 			'response' => $code,
 			'secret' => $this->params->get('secret'),
-		);
+		];
 
 		try
 		{
