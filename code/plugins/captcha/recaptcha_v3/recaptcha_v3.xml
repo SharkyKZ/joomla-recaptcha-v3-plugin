@@ -37,7 +37,7 @@
 				/>
 				<field
 					name="score"
-					type="text"
+					type="number"
 					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_LABEL"
 					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_SCORE_DESCRIPTION"
 					validate="number"
