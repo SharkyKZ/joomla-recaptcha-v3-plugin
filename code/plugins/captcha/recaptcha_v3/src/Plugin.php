@@ -205,6 +205,7 @@ final class Plugin implements PluginInterface
 		}
 
 		$html = '<input type="hidden" name="' . $this->escape($name) . '" class="plg-captcha-recaptcha-v3-hidden">';
+		$html = '<input type="hidden" name="plg_captcha_recaptcha_v3_action">';
 		$html .= $this->render('noscript');
 
 
