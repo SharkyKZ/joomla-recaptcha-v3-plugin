@@ -368,7 +368,7 @@ final class Plugin implements PluginInterface
 
 		if ($this->hasCaptcha())
 		{
-			$this->setShouldShowCaptcha(true);
+			$this->setShouldShowCaptcha(false);
 		}
 
 		return true;
