@@ -47,7 +47,7 @@ final class Plugin implements PluginInterface
 	 * @var	 string
 	 * @since  1.0.0
 	 */
-	private const SCRIPT_HASH = 'aa574c49';
+	private const SCRIPT_HASH = '7d7e14f6';
 
 	/**
 	 * Application instance.
@@ -264,7 +264,7 @@ final class Plugin implements PluginInterface
 		if ($code === null || $code === '')
 		{
 			// No answer provided, form was manipulated.
-			throw new \RuntimeException($language->_('PLG_CAPTCHA_RECAPTCHA_V3_ERROR_EMPTY_ANSWER'));
+			throw new \RuntimeException($language->_('PLG_CAPTCHA_RECAPTCHA_V3_ERROR_EMPTY_RESPONSE'));
 		}
 
 		if (!$this->params->get('secret'))
