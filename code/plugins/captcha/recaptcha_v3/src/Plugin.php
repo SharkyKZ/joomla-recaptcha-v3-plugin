@@ -140,19 +140,19 @@ final class Plugin implements PluginInterface
 
 		if (!$this->params->get('siteKey'))
 		{
-			return true;
+			return false;
 		}
 
 		if (!$this->app instanceof CMSWebApplicationInterface)
 		{
-			return true;
+			return false;
 		}
 
 		$document = $this->app->getDocument();
 
 		if (!$document instanceof HtmlDocument)
 		{
-			return true;
+			return false;
 		}
 
 		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $this->params->get('siteKey'));
