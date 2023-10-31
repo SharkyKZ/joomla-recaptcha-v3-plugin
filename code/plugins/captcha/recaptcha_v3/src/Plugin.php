@@ -205,7 +205,7 @@ final class Plugin implements PluginInterface
 		}
 
 		$html = '<input type="hidden" name="' . $this->escape($name) . '" class="plg-captcha-recaptcha-v3-hidden">';
-		$html = '<input type="hidden" name="plg_captcha_recaptcha_v3_action">';
+		$html .= '<input type="hidden" name="plg_captcha_recaptcha_v3_action" class="plg-captcha-recaptcha-v3-action">';
 		$html .= $this->render('noscript');
 
 
@@ -340,6 +340,11 @@ final class Plugin implements PluginInterface
 		if (!\is_float($score) || $score < 0 || $score > 1)
 		{
 			$score = 0.5;
+		}
+
+		if (!isset($body->action) || $body->action !== $this->app->getInput()->get('plg_captcha_recaptcha_v3_action', '', 'RAW'))
+		{
+			throw new \RuntimeException('PLG_CAPTCHA_RECAPTCHA_V3_ERROR_INVALID_ACTION');
 		}
 
 		if (!isset($body->score) || $body->score < $score)
