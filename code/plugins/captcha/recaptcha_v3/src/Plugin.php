@@ -14,9 +14,9 @@ use Joomla\CMS\Captcha\Captcha;
 use Joomla\CMS\Document\HtmlDocument;
 use Joomla\CMS\Extension\PluginInterface;
 use Joomla\CMS\Form\Field\CaptchaField;
-use Joomla\CMS\Http\HttpFactory;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Event\DispatcherInterface;
+use Joomla\Http\HttpFactory;
 use Joomla\Registry\Registry;
 
 /**
@@ -66,6 +66,14 @@ final class Plugin implements PluginInterface
 	private $params;
 
 	/**
+	 * HTTP factory instance.
+	 *
+	 * @var	 HttpFactory
+	 * @since  1.0.0
+	 */
+	private $httpFactory;
+
+	/**
 	 * Alternative Captcha instance, if set.
 	 *
 	 * @var	 ?Captcha
@@ -82,10 +90,11 @@ final class Plugin implements PluginInterface
 	 *
 	 * @since   1.0.0
 	 */
-	public function __construct(CMSApplicationInterface $app, Registry $params)
+	public function __construct(CMSApplicationInterface $app, Registry $params, HttpFactory $httpFactory)
 	{
 		$this->app = $app;
 		$this->params = $params;
+		$this->httpFactory = $httpFactory;
 	}
 
 	/**
@@ -274,7 +283,7 @@ final class Plugin implements PluginInterface
 
 		try
 		{
-			$http = (new HttpFactory)->getHttp();
+			$http = $this->httpFactory->getHttp();
 		}
 		catch (\RuntimeException $exception)
 		{
