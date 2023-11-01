@@ -125,7 +125,7 @@ final class Plugin implements PluginInterface
 	/**
 	 * Initialises the captcha.
 	 *
-	 * @param   string|null  $id  The id of the field.
+	 * @param   ?string  $id  The id of the field.
 	 *
 	 * @return  bool
 	 *
@@ -191,9 +191,9 @@ final class Plugin implements PluginInterface
 	/**
 	 * Generates HTML field markup.
 	 *
-	 * @param   string|null  $name   The name of the field.
-	 * @param   string|null  $id	 The id of the field.
-	 * @param   string|null  $class  The class of the field.
+	 * @param   ?string  $name   The name of the field.
+	 * @param   ?string  $id	 The id of the field.
+	 * @param   ?string  $class  The class of the field.
 	 *
 	 * @return  string  The HTML to be embedded in the form.
 	 *
@@ -246,7 +246,7 @@ final class Plugin implements PluginInterface
 	/**
 	 * Makes HTTP request to remote service to verify user's answer.
 	 *
-	 * @param   string|null  $code  Answer provided by user.
+	 * @param   ?string  $code  Answer provided by user.
 	 *
 	 * @return  bool
 	 *
