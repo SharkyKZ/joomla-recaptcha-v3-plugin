@@ -7,11 +7,15 @@ Array.from(document.querySelectorAll('input.plg-captcha-recaptcha-v3-hidden')).m
 				grecaptcha.ready(
 					function () {
 						action = (function (form) {
+							var matchClass;
 							form.classList.forEach(element => {
-								if (element.startsWith('com-') || element.startsWith('mod-') || element.startsWith('plg-')) {
-									return element;
+								if (element.match(/^(com|mod|plg)\-/)) {
+									matchClass = element;
 								}
 							});
+							if (matchClass) {
+								return matchClass;
+							}
 							if (form.id) {
 								return form.id;
 							}
@@ -21,7 +25,7 @@ Array.from(document.querySelectorAll('input.plg-captcha-recaptcha-v3-hidden')).m
 							return 'submit';
 						})(event.target);
 						actionElement = event.target.querySelector('.plg-captcha-recaptcha-v3-action');
-						actionElement.value = action.replace(/[^a-z0-9_]/, '_');
+						actionElement.value = action.replace(/[^a-z0-9]+/gi, '_');
 						grecaptcha.execute(
 							Joomla.getOptions('plg_captcha_recaptcha_v3.siteKey'),
 							{action: actionElement.value}
