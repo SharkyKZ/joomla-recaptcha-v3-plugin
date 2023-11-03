@@ -158,7 +158,6 @@ final class Plugin implements PluginInterface
 		}
 
 		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $siteKey);
-
 		$assetManager = $document->getWebAssetManager();
 
 		if (!$assetManager->assetExists('script', 'plg_captcha_recaptcha_v3.api.js'))
@@ -184,8 +183,9 @@ final class Plugin implements PluginInterface
 				['async' => true, 'defer' => true],
 				['plg_captcha_recaptcha_v3.api.js', 'core']
 			);
-			$assetManager->useAsset('script', 'plg_captcha_recaptcha_v3.main.js');
 		}
+
+		$assetManager->useAsset('script', 'plg_captcha_recaptcha_v3.main.js');
 
 		return true;
 	}
