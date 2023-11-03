@@ -140,7 +140,9 @@ final class Plugin implements PluginInterface
 			return $this->getCaptcha()->initialise($id);
 		}
 
-		if (!$this->params->get('siteKey'))
+		$siteKey = $this->params->get('siteKey');
+
+		if (!$siteKey)
 		{
 			return false;
 		}
@@ -157,7 +159,7 @@ final class Plugin implements PluginInterface
 			return false;
 		}
 
-		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $this->params->get('siteKey'));
+		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $siteKey);
 
 		$assetManager = $document->getWebAssetManager();
 
@@ -167,7 +169,7 @@ final class Plugin implements PluginInterface
 			$assetManager->registerAsset(
 				'script',
 				'plg_captcha_recaptcha_v3.api.js',
-				'https://www.google.com/recaptcha/api.js?hl=' . $languageTag . '&render=' . $this->params->get('siteKey'),
+				'https://www.google.com/recaptcha/api.js?hl=' . $languageTag . '&render=' . $siteKey,
 				[],
 				['async' => true, 'defer' => true],
 				['core']
