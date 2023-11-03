@@ -140,9 +140,7 @@ final class Plugin implements PluginInterface
 			return $this->getCaptcha()->initialise($id);
 		}
 
-		$siteKey = $this->params->get('siteKey');
-
-		if (!$siteKey)
+		if (!$siteKey = $this->params->get('siteKey'))
 		{
 			return false;
 		}
@@ -261,9 +259,7 @@ final class Plugin implements PluginInterface
 	{
 		if ($this->shouldShowCaptcha())
 		{
-			$answer = $this->getCaptcha()->checkAnswer($code);
-
-			if ($answer)
+			if ($answer = $this->getCaptcha()->checkAnswer($code))
 			{
 				$this->setShouldShowCaptcha(false);
 			}
@@ -450,9 +446,7 @@ final class Plugin implements PluginInterface
 
 	private function hasCaptcha(): bool
 	{
-		$captcha = $this->params->get('captcha');
-
-		if (!$captcha)
+		if (!$captcha = $this->params->get('captcha'))
 		{
 			return false;
 		}
