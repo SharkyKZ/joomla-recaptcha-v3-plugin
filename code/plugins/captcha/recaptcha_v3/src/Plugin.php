@@ -20,6 +20,7 @@ use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Event\DispatcherInterface;
 use Joomla\Http\HttpFactory;
 use Joomla\Registry\Registry;
+use Joomla\Utilities\ArrayHelper;
 
 /**
  * Google reCAPTCHA v3 plugin
@@ -215,7 +216,24 @@ final class Plugin implements PluginInterface
 			return $this->render('nokey');
 		}
 
-		$html = '<input type="hidden" name="' . $this->escape($name) . '" class="plg-captcha-recaptcha-v3-hidden">';
+		$attributes = [
+			'type' => 'hidden',
+			'class' => 'plg-captcha-recaptcha-v3-hidden',
+		];
+
+		if ($name !== null && $name !== '')
+		{
+			$attributes['name'] = $name;
+		}
+
+		if ($id !== null && $id !== '')
+		{
+			$attributes['id'] = $id;
+		}
+
+		$attributes = array_map([$this, 'escape'], $attributes);
+
+		$html = '<input ' . ArrayHelper::toString($attributes) . '>';
 		$html .= '<input type="hidden" name="plg_captcha_recaptcha_v3_action" class="plg-captcha-recaptcha-v3-action">';
 		$html .= $this->render('noscript');
 
