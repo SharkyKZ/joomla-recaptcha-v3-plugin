@@ -448,12 +448,14 @@ final class Plugin implements PluginInterface
 
 	private function hasCaptcha(): bool
 	{
-		if (!$this->params->get('captcha'))
+		$captcha = $this->params->get('captcha');
+
+		if (!$captcha)
 		{
 			return false;
 		}
 
-		if ($this->params->get('captcha') === 'recaptcha_v3')
+		if ($captcha === 'recaptcha_v3')
 		{
 			return false;
 		}
@@ -462,13 +464,13 @@ final class Plugin implements PluginInterface
 		{
 			$container = Factory::getContainer();
 
-			if ($container->has(CaptchaRegistry::class) && $container->get(CaptchaRegistry::class)->has($this->params->get('captcha')))
+			if ($container->has(CaptchaRegistry::class) && $container->get(CaptchaRegistry::class)->has($captcha))
 			{
 				return true;
 			}
 		}
 
-		return PluginHelper::isEnabled('captcha', $this->params->get('captcha'));
+		return PluginHelper::isEnabled('captcha', $captcha);
 	}
 
 	private function getCaptcha(): Captcha
