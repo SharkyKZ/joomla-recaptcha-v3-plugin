@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<updates>
+	<update>
+		<name>Captcha - reCAPTCHA v3</name>
+		<description>Google reCAPTCHA v3 plugin for Joomla!.</description>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<folder>captcha</folder>
+		<client>site</client>
+		<maintainer>SharkyKZ</maintainer>
+		<maintainerurl>https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin</maintainerurl>
+		<version>1.0.0</version>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/download/1.0.0/plg_captcha_recaptcha_v3-1.0.0.zip</downloadurl>
+		</downloads>
+		<sha512>adf6d6b534e7bdb3e3bec5d44c305a89fb477fe8d3a241bbbc7fb3de3a8e5479d8c61006b942e0fa88d6d4bdaa64aa1d7191eae80c5e8070f01ff1c809d057fa</sha512>
+		<sha384>a0847769d3f70d31535e655f09986e354d4d8d15db75591363d608fab6ff2c2e446c85dac70bd31acafdb2af31e0b1f1</sha384>
+		<sha256>0a8d6e7aa4d64f0f4c1ade9e8b391df572cab4cdb5ec1a5b213e36a1b3ad04d9</sha256>
+		<infourl title="Captcha - reCAPTCHA v3">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/tag/1.0.0</infourl>
+		<changelogurl>https://raw.githubusercontent.com/SharkyKZ/joomla-recaptcha-v3-plugin/master/updates/changelog.xml</changelogurl>
+		<targetplatform name="joomla" version="(5\.|4\.)"/>
+		<php_minimum>7.2.5</php_minimum>
+	</update>
+</updates>

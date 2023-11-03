@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<changelogs>
+	<changelog>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<version>1.0.0</version>
+		<note>Initial release</note>
+	</changelog>
+</changelogs>
