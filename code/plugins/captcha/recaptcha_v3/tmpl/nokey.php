@@ -3,7 +3,6 @@
  * @copyright   (C) 2023 SharkyKZ
  * @license     GPL-2.0-or-later
  */
-
 defined('_JEXEC') || exit;
 
 /** @var Joomla\CMS\Language\Language $language */

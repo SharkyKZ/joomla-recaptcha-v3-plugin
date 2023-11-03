@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @copyright   (C) 2023 SharkyKZ
+ * @license     GPL-2.0-or-later
+ */
 defined('_JEXEC') || exit;
 
 use Joomla\CMS\Extension\PluginInterface;
