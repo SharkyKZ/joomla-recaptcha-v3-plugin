@@ -1,6 +1,6 @@
 <?php
 
-require (dirname(__DIR__)) . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use Sharky\Joomla\PluginBuildScript\Script;
 
