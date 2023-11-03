@@ -6,8 +6,8 @@ Array.from(document.querySelectorAll('input.plg-captcha-recaptcha-v3-hidden')).m
 				event.preventDefault();
 				grecaptcha.ready(
 					function () {
-						action = (function (form) {
-							var matchClass;
+						const action = (function (form) {
+							let matchClass;
 							form.classList.forEach(element => {
 								if (element.match(/^(com|mod|plg)\-/)) {
 									matchClass = element;
@@ -24,7 +24,7 @@ Array.from(document.querySelectorAll('input.plg-captcha-recaptcha-v3-hidden')).m
 							}
 							return 'submit';
 						})(event.target);
-						actionElement = event.target.querySelector('.plg-captcha-recaptcha-v3-action');
+						let actionElement = event.target.querySelector('.plg-captcha-recaptcha-v3-action');
 						actionElement.value = action.replace(/[^a-z0-9]+/gi, '_');
 						grecaptcha.execute(
 							Joomla.getOptions('plg_captcha_recaptcha_v3.siteKey'),
