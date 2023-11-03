@@ -11,8 +11,10 @@ use Joomla\Application\SessionAwareWebApplicationInterface;
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Application\CMSWebApplicationInterface;
 use Joomla\CMS\Captcha\Captcha;
+use Joomla\CMS\Captcha\CaptchaRegistry;
 use Joomla\CMS\Document\HtmlDocument;
 use Joomla\CMS\Extension\PluginInterface;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\CaptchaField;
 use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\Event\DispatcherInterface;
@@ -47,7 +49,7 @@ final class Plugin implements PluginInterface
 	 * @var	 string
 	 * @since  1.0.0
 	 */
-	private const SCRIPT_HASH = '0983179b';
+	private const SCRIPT_HASH = '6e31ffad';
 
 	/**
 	 * Application instance.
@@ -456,7 +458,17 @@ final class Plugin implements PluginInterface
 			return false;
 		}
 
-		return true;
+		if (version_compare(\JVERSION, '5.0', '>='))
+		{
+			$container = Factory::getContainer();
+
+			if ($container->has(CaptchaRegistry::class) && $container->get(CaptchaRegistry::class)->has($this->params->get('captcha')))
+			{
+				return true;
+			}
+		}
+
+		return PluginHelper::isEnabled('captcha', $this->params->get('captcha'));
 	}
 
 	private function getCaptcha(): Captcha
