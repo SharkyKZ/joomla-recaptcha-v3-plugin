@@ -87,7 +87,9 @@ final class Plugin implements PluginInterface
 	/**
 	 * Class constructor.
 	 *
-	 * @param   Registry  $params  Plugin parameters.
+	 * @param   CMSApplicationInterface  $app          Application instance.
+	 * @param   Registry                 $params       Plugin parameters.
+	 * @param   HttpFactory              $httpFactory  HTTP factory instance.
 	 *
 	 * @return  void
 	 *
