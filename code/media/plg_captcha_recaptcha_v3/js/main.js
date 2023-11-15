@@ -16,11 +16,11 @@ Array.from(document.querySelectorAll("input.plg-captcha-recaptcha-v3-hidden")).m
 				if (matchClass) {
 					return matchClass;
 				}
-				if (form.id) {
-					return form.id;
+				if (form.hasAttribute('id') && form.getAttribute('id') !== '') {
+					return form.getAttribute('id');
 				}
-				if (form.name) {
-					return form.name;
+				if (form.hasAttribute('name') && form.getAttribute('name') !== '') {
+					return form.getAttribute('name');
 				}
 				return "submit";
 			})(event.target);
