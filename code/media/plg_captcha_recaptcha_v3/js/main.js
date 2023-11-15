@@ -7,14 +7,16 @@ Array.from(document.querySelectorAll("input.plg-captcha-recaptcha-v3-hidden")).m
 		event.preventDefault();
 		grecaptcha.ready(function () {
 			const action = (function (form) {
-				let matchClass;
-				form.classList.forEach((element) => {
-					if (element.match(/^(com|mod|plg)\-/)) {
-						matchClass = element;
+				if (form.hasAttribute('class') && form.getAttribute('class') !== '') {
+					let matchClass;
+					form.getAttribute('class').split(/\s+/).forEach((element) => {
+						if (element.match(/^(com|mod|plg)\-/)) {
+							matchClass = element;
+						}
+					});
+					if (matchClass) {
+						return matchClass;
 					}
-				});
-				if (matchClass) {
-					return matchClass;
 				}
 				if (form.hasAttribute('id') && form.getAttribute('id') !== '') {
 					return form.getAttribute('id');
