@@ -5,7 +5,7 @@
 	<creationDate>2023-10-26</creationDate>
 	<copyright>(C) 2023 SharkyKZ</copyright>
 	<license>GPL-3.0-or-later</license>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<description>PLG_CAPTCHA_RECAPTCHA_V3_XML_DESCRIPTION</description>
 	<namespace path="src">Sharky\Plugin\Captcha\RecaptchaV3</namespace>
 	<files>
