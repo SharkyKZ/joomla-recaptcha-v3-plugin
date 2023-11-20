@@ -9,14 +9,14 @@
 		<client>site</client>
 		<maintainer>SharkyKZ</maintainer>
 		<maintainerurl>https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin</maintainerurl>
-		<version>1.1.0</version>
+		<version>1.1.1</version>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/download/1.1.0/plg_captcha_recaptcha_v3-1.1.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/download/1.1.1/plg_captcha_recaptcha_v3-1.1.1.zip</downloadurl>
 		</downloads>
-		<sha512>2f0de13c5ad00920f7c850dcef9ade8d8aeee98a5e38e5a563c07a920d829de5fac8ac945af1cb9941b92871441dfce6288ce5fbde76a4af258b0f764d363d91</sha512>
-		<sha384>dfd5b5201aca2b35ccad88a12bc806f0986aab3a0c3eb48a71975d78460844d3e86eea6da9dcb3e3faaf279f684cda9d</sha384>
-		<sha256>12b7238c49cd772305fbb9363ee9054caa253b77b3a6f9ca432bd989e906b585</sha256>
-		<infourl title="Captcha - reCAPTCHA v3">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/tag/1.1.0</infourl>
+		<sha512>f4ec9c94ff565925f136c9157493abf8ccc352e1a207dbc8e3c7ad0c4d23de3b05497ab586af2560768d45a4692db26a751d5b55c6b023baa141540eac8dba53</sha512>
+		<sha384>4baad0ab7dc1731f37fe5a7fcd7468aa9d439c904dc79b94b8e794ed0758ae61742af765032b470f6aa06ab55d2e61de</sha384>
+		<sha256>2876eba04c2109afab09806314d738de27b0fba5d00bacbd61b14e332c999eef</sha256>
+		<infourl title="Captcha - reCAPTCHA v3">https://github.com/SharkyKZ/joomla-recaptcha-v3-plugin/releases/tag/1.1.1</infourl>
 		<changelogurl>https://raw.githubusercontent.com/SharkyKZ/joomla-recaptcha-v3-plugin/master/updates/changelog.xml</changelogurl>
 		<targetplatform name="joomla" version="(5\.|4\.)"/>
 		<php_minimum>7.2.5</php_minimum>

@@ -19,4 +19,12 @@
 			<item>Upgraded license to GPL v3.0 (or later)</item>
 		</change>
 	</changelog>
+	<changelog>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<version>1.1.1</version>
+		<fix>
+			<item>Fixed error when caching is enabled</item>
+		</fix>
+	</changelog>
 </changelogs>
