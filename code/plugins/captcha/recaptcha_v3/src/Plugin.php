@@ -188,6 +188,7 @@ final class Plugin implements PluginInterface
 			);
 		}
 
+		$assetManager->useAsset('script', 'plg_captcha_recaptcha_v3.api.js');
 		$assetManager->useAsset('script', 'plg_captcha_recaptcha_v3.main.js');
 
 		return true;
