@@ -397,7 +397,7 @@ final class Plugin implements PluginInterface
 
 	private function escape(?string $string): string
 	{
-		return $string ? htmlspecialchars($string, \ENT_QUOTES|\ENT_SUBSTITUTE|\ENT_HTML5, 'UTF-8') : $string;
+		return $string ? htmlspecialchars($string, \ENT_QUOTES|\ENT_SUBSTITUTE|\ENT_HTML5, 'UTF-8') : (string) $string;
 	}
 
 	private function render(string $layout): string
