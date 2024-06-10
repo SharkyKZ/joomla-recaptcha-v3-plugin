@@ -171,7 +171,7 @@ final class Plugin implements PluginInterface
 				'plg_captcha_recaptcha_v3.api.js',
 				'https://www.google.com/recaptcha/api.js?hl=' . $languageTag . '&render=' . $siteKey,
 				[],
-				['async' => true, 'defer' => true, 'referrerpolicy' => 'no-referrer'],
+				['defer' => true, 'referrerpolicy' => 'no-referrer'],
 				['core']
 			);
 		}
@@ -183,7 +183,7 @@ final class Plugin implements PluginInterface
 				'plg_captcha_recaptcha_v3.main.js',
 				'plg_captcha_recaptcha_v3/main.js',
 				['version' => self::SCRIPT_HASH],
-				['async' => true, 'defer' => true],
+				['defer' => true],
 				['plg_captcha_recaptcha_v3.api.js', 'core']
 			);
 		}
