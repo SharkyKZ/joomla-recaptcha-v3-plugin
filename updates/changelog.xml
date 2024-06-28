@@ -27,4 +27,12 @@
 			<item>Fixed error when caching is enabled</item>
 		</fix>
 	</changelog>
+	<changelog>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<version>1.1.2</version>
+		<fix>
+			<item>Removed async attribute from scripts. May fix some edge case issues.</item>
+		</fix>
+	</changelog>
 </changelogs>
