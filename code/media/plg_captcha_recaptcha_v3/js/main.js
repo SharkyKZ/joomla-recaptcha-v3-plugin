@@ -1,6 +1,6 @@
 /**
  * @copyright   (C) 2023 SharkyKZ
- * @license     GPL-2.0-or-later
+ * @license     GPL-3.0-or-later
  */
 Array.from(document.querySelectorAll("input.plg-captcha-recaptcha-v3-hidden")).map(function (element) {
 	element.form.addEventListener("submit", function (event) {
