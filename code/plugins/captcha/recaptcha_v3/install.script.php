@@ -8,6 +8,7 @@ defined('_JEXEC') || exit;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
+use Joomla\CMS\Version;
 
 /**
  * Plugin installer script.
@@ -68,7 +69,7 @@ final class PlgCaptchaRecaptcha_V3InstallerScript
 			return false;
 		}
 
-		if (version_compare(JVERSION, $this->joomlaUnsupported, '>='))
+		if (version_compare(JVERSION, $this->joomlaUnsupported, '>=') && !(new Version)->isInDevelopmentState())
 		{
 			return false;
 		}
