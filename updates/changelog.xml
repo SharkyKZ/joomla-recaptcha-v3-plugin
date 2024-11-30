@@ -35,4 +35,15 @@
 			<item>Removed async attribute from scripts. May fix some edge case issues.</item>
 		</fix>
 	</changelog>
+	<changelog>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<version>1.2.0</version>
+		<addition>
+			<item>Added `Trigger Method` option to allow triggering CAPTCHA on page load. Fixes incompatibility with some extensions.</item>
+		</addition>
+		<change>
+			<item>Declared PHP 8.4 support</item>
+		</change>
+	</changelog>
 </changelogs>
