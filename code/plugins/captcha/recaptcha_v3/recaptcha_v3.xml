@@ -57,6 +57,18 @@
 					>
 					<option value="">JNONE</option>
 				</field>
+				<field
+					name="triggerMethod"
+					type="list"
+					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_LABEL"
+					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_DESCRIPTION"
+					default="submit"
+					filter="cmd"
+					validate="options"
+					>
+					<option value="submit">PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_SUBMIT</option>
+					<option value="load">PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_LOAD</option>
+				</field>
 			</fieldset>
 			<fieldset name="advanced">
 				<field
