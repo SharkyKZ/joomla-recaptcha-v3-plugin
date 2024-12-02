@@ -4,23 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acb44e8ad981ff3155279a7bcae56116",
+    "content-hash": "ea7907a73857e25be30e2399e5da4da5",
     "packages": [],
     "packages-dev": [
         {
             "name": "sharky/joomla-plugin-build-script",
-            "version": "dev-composer",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SharkyKZ/joomla-plugin-build-script.git",
-                "reference": "6cc17bcf124a630e57050d76543f4475b610bb46"
+                "reference": "c9c44d8c24050c50f708c260a3f46a18c6f25631"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SharkyKZ/joomla-plugin-build-script/zipball/6cc17bcf124a630e57050d76543f4475b610bb46",
-                "reference": "6cc17bcf124a630e57050d76543f4475b610bb46",
+                "url": "https://api.github.com/repos/SharkyKZ/joomla-plugin-build-script/zipball/c9c44d8c24050c50f708c260a3f46a18c6f25631",
+                "reference": "c9c44d8c24050c50f708c260a3f46a18c6f25631",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -28,10 +29,10 @@
                 }
             },
             "support": {
-                "source": "https://github.com/SharkyKZ/joomla-plugin-build-script/tree/composer",
+                "source": "https://github.com/SharkyKZ/joomla-plugin-build-script/tree/master",
                 "issues": "https://github.com/SharkyKZ/joomla-plugin-build-script/issues"
             },
-            "time": "2023-10-27T07:54:04+00:00"
+            "time": "2024-12-02T07:32:54+00:00"
         }
     ],
     "aliases": [],
@@ -43,5 +44,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

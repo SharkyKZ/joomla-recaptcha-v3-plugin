@@ -17,6 +17,7 @@ use Sharky\Joomla\PluginBuildScript\Script;
 		'Google reCAPTCHA v3 plugin for Joomla!.',
 		'(5\.|4\.)',
 		'7.2.5',
+		$argv[1] ?? null,
 	) extends Script {
 		public function build(): void
 		{

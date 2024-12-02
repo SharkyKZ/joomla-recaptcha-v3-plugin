@@ -6,6 +6,6 @@
         }
     ],
     "require-dev": {
-        "sharky/joomla-plugin-build-script": "dev-composer"
+        "sharky/joomla-plugin-build-script": "dev-master"
     }
 }
