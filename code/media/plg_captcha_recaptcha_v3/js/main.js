@@ -40,6 +40,18 @@ const handleSubmit = function (submitEvent) {
 	});
 }
 
+const handleFocus = function(focusInEvent) {
+	grecaptcha.ready(function () {
+		const actionElement = focusInEvent.target.form.querySelector(actionSelector);
+		actionElement.value = getAction(focusInEvent.target.form);
+		const answerElement = focusInEvent.target.form.querySelector(answerSelector);
+		grecaptcha.execute(captchaKey, {action: actionElement.value}).then(function (token) {
+			answerElement.value = token;
+			setInterval(handleLoad, 110_000, answerElement);
+		});
+	});
+}
+
 const handleLoad = function (element) {
 	grecaptcha.ready(function () {
 		const actionElement = element.form.querySelector(actionSelector);
@@ -53,7 +65,11 @@ const handleLoad = function (element) {
 Array.from(document.querySelectorAll(answerSelector)).map(function (element) {
 	if (triggerMethod === 'submit') {
 		element.form.addEventListener('submit', handleSubmit);
+		return;
+	}
 
+	if (triggerMethod === 'focusin') {
+		element.form.addEventListener('focusin', handleFocus, {once: true});
 		return;
 	}
 
