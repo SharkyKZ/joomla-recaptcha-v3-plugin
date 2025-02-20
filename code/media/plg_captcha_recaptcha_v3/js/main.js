@@ -3,7 +3,7 @@
  * @license     GPL-3.0-or-later
  */
 const captchaKey = Joomla.getOptions('plg_captcha_recaptcha_v3.siteKey', '');
-const triggerMethod = Joomla.getOptions('plg_captcha_recaptcha_v3.triggerMethod', 'submit');
+const triggerMethod = Joomla.getOptions('plg_captcha_recaptcha_v3.triggerMethod', 'focusin');
 const actionSelector = 'input.plg-captcha-recaptcha-v3-action';
 const answerSelector = 'input.plg-captcha-recaptcha-v3-hidden';
 const getAction = form => findAction(form).replace(/[^a-z0-9]+/gi, '_');

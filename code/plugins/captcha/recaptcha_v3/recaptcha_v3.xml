@@ -62,7 +62,7 @@
 					type="list"
 					label="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_LABEL"
 					description="PLG_CAPTCHA_RECAPTCHA_V3_CONFIG_TRIGGER_METHOD_DESCRIPTION"
-					default="submit"
+					default="focusin"
 					filter="cmd"
 					validate="options"
 					required="true"

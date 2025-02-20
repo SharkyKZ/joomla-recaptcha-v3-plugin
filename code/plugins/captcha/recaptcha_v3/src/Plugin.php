@@ -161,7 +161,7 @@ final class Plugin implements PluginInterface
 		}
 
 		$document->addScriptOptions('plg_captcha_recaptcha_v3.siteKey', $siteKey);
-		$document->addScriptOptions('plg_captcha_recaptcha_v3.triggerMethod', $this->params->get('triggerMethod', 'submit'));
+		$document->addScriptOptions('plg_captcha_recaptcha_v3.triggerMethod', $this->params->get('triggerMethod', 'focusin'));
 		$assetManager = $document->getWebAssetManager();
 
 		if (!$assetManager->assetExists('script', 'plg_captcha_recaptcha_v3.api.js'))
