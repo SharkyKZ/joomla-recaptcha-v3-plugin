@@ -15,7 +15,7 @@ use Sharky\Joomla\PluginBuildScript\Script;
 		'SharkyKZ',
 		'Captcha - reCAPTCHA v3',
 		'Google reCAPTCHA v3 plugin for Joomla!.',
-		'(5\.|4\.)',
+		'(6\.|5\.|4\.)',
 		'7.2.5',
 		$argv[1] ?? null,
 	) extends Script {

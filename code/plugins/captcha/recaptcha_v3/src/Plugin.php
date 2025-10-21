@@ -326,7 +326,7 @@ final class Plugin implements PluginInterface
 		try
 		{
 			$response = $http->post('https://www.google.com/recaptcha/api/siteverify', $data);
-			$body = json_decode($response->body);
+			$body = json_decode((string) $response->getBody());
 		}
 		catch (\RuntimeException $exception)
 		{
