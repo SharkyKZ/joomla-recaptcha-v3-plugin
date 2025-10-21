@@ -46,4 +46,16 @@
 			<item>Declared PHP 8.4 support</item>
 		</change>
 	</changelog>
+	<changelog>
+		<element>recaptcha_v3</element>
+		<type>plugin</type>
+		<version>1.3.0</version>
+		<addition>
+			<item>Added `Focus In` trigger method. Fixes incompatibility with some extensions. Default on new installations.</item>
+		</addition>
+		<change>
+			<item>Declared PHP 8.5 support</item>
+			<item>Declared Joomla! 6.0 support</item>
+		</change>
+	</changelog>
 </changelogs>
