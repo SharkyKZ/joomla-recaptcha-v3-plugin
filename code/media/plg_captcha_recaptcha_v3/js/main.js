@@ -41,10 +41,11 @@ const handleSubmit = function (submitEvent) {
 }
 
 const handleFocus = function(focusInEvent) {
-	grecaptcha.ready(function () {
-		const actionElement = focusInEvent.target.form.querySelector(actionSelector);
-		actionElement.value = getAction(focusInEvent.target.form);
-		const answerElement = focusInEvent.target.form.querySelector(answerSelector);
+		grecaptcha.ready(function () {
+		const form = focusInEvent.target.closest('form');
+		const actionElement = form.querySelector(actionSelector);
+		actionElement.value = getAction(form);
+		const answerElement = form.querySelector(answerSelector);
 		grecaptcha.execute(captchaKey, {action: actionElement.value}).then(function (token) {
 			answerElement.value = token;
 			setInterval(handleLoad, 110_000, answerElement);
