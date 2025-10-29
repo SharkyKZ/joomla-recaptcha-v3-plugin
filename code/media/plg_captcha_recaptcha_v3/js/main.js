@@ -1,6 +1,6 @@
 /**
- * @copyright   (C) 2023 SharkyKZ
- * @license     GPL-3.0-or-later
+ * @copyright  (C) 2023 SharkyKZ
+ * @license    GPL-3.0-or-later
  */
 const captchaKey = Joomla.getOptions('plg_captcha_recaptcha_v3.siteKey', '');
 const triggerMethod = Joomla.getOptions('plg_captcha_recaptcha_v3.triggerMethod', 'focusin');
@@ -41,8 +41,8 @@ const handleSubmit = function (submitEvent) {
 }
 
 const handleFocus = function(focusInEvent) {
-		grecaptcha.ready(function () {
-		const form = focusInEvent.target.closest('form');
+	grecaptcha.ready(function () {
+		const form = focusInEvent.target.form ?? focusInEvent.target.closest('input, textarea, select, button, fieldset').form;
 		const actionElement = form.querySelector(actionSelector);
 		actionElement.value = getAction(form);
 		const answerElement = form.querySelector(answerSelector);
