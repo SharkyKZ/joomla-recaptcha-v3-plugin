@@ -53,6 +53,19 @@ const handleFocus = function(focusInEvent) {
 	});
 }
 
+const handleIframeFocus = function(focusInEvent, addedNode) {
+	const form = addedNode.closest('input, textarea, select, button, fieldset').form;
+	grecaptcha.ready(function () {
+		const actionElement = form.querySelector(actionSelector);
+		actionElement.value = getAction(form);
+		const answerElement = form.querySelector(answerSelector);
+		grecaptcha.execute(captchaKey, {action: actionElement.value}).then(function (token) {
+			answerElement.value = token;
+			setInterval(handleLoad, 110_000, answerElement);
+		});
+	});
+}
+
 const handleLoad = function (element) {
 	grecaptcha.ready(function () {
 		const actionElement = element.form.querySelector(actionSelector);
@@ -63,6 +76,19 @@ const handleLoad = function (element) {
 	});
 }
 
+const observerConfig = {childList: true, subtree: true};
+
+const observerCallback = (mutations, observer) => {
+	for (const mutation of mutations) {
+		for (const addedNode of mutation.addedNodes) {
+			if (addedNode.nodeType !== Node.ELEMENT_NODE || addedNode.tagName !== 'IFRAME') {
+				continue;
+			}
+			addedNode.contentDocument.addEventListener('focusin', (event) => handleIframeFocus(event, addedNode), {once: true});
+		}
+	}
+};
+
 Array.from(document.querySelectorAll(answerSelector)).map(function (element) {
 	if (triggerMethod === 'submit') {
 		element.form.addEventListener('submit', handleSubmit);
@@ -71,6 +97,11 @@ Array.from(document.querySelectorAll(answerSelector)).map(function (element) {
 
 	if (triggerMethod === 'focusin') {
 		element.form.addEventListener('focusin', handleFocus, {once: true});
+
+		// Special case for editors using dynamically addeds iframes
+		const observer = new MutationObserver(observerCallback);
+		observer.observe(element.form, observerConfig);
+
 		return;
 	}
 
