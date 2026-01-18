@@ -89,10 +89,10 @@ const observerCallback = (mutations, observer) => {
 	}
 };
 
-Array.from(document.querySelectorAll(answerSelector)).map(function (element) {
+for (const element of document.querySelectorAll(answerSelector)) {
 	if (triggerMethod === 'submit') {
 		element.form.addEventListener('submit', handleSubmit);
-		return;
+		continue;
 	}
 
 	if (triggerMethod === 'focusin') {
@@ -102,9 +102,9 @@ Array.from(document.querySelectorAll(answerSelector)).map(function (element) {
 		const observer = new MutationObserver(observerCallback);
 		observer.observe(element.form, observerConfig);
 
-		return;
+		continue;
 	}
 
 	handleLoad(element);
 	setInterval(handleLoad, 110_000, element);
-});
+};
